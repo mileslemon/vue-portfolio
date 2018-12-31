@@ -42,7 +42,7 @@
       <div class="v-line line-2"></div>
     </div>
 
-    <div class="main-content">
+    <div class="main-content" :class="{'main-content-padding': $route.name === 'blog'}">
       <transition name="router-anim" mode="out-in" appear>
         <router-view 
           class="content"  
@@ -498,14 +498,18 @@ p {
 
 .main-content {
   max-width: 1400px;
-  padding: 0 32px;
   position: relative;
   width: 100%;
   margin: 78px auto 0 auto;
+  padding: 0 32px;
   .content {
     width: 100%;
     height: 100%;
   }
+}
+
+.main-content-padding {
+  padding: 0;
 }
 
 .blog-post-body {
@@ -625,6 +629,9 @@ p {
 }
 
 @include breakpoint($desk) {
+  .main-content-padding {
+    padding: 0 32px;
+  }
   .line-wrapper {
     .line-1 {
       left: 190px;

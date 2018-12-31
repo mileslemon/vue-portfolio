@@ -103,7 +103,7 @@ export default {
     font-size: 2.5rem;
   }
   .blog-post-body {
-    font-size: 1.25rem;
+    font-size: 1rem;
     line-height: 1.3;
     a {
       color: white;

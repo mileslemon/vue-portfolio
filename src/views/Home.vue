@@ -61,22 +61,22 @@ export default {
   height: 100%;
   padding: 78px 0 87px 0;
   .c-line {
+    display: none;
     @include border-radius(50%);
     margin-left: -32px;
     height: 100%;
     border: 1px solid $grey;
-    display: block;
   }
 }
 
 .intro-text {
   color: $off-white;
-  padding: 80px 0 0 0;
+  padding: 64px 0 0 0;
   h1 {
     font-family: UniversLight, sans-serif;
-    font-size: 3rem;
+    font-size: 2.5rem;
     letter-spacing: -1px;
-    margin: 16px 0 0;
+    margin: 0;
     line-height: 1.3;
   }
 }
@@ -96,8 +96,15 @@ export default {
   }
 }
 
+@include breakpoint($widemob) {
+  .c-line {
+    display: block;
+  }
+}
+
 @include breakpoint($tab) {
   .intro-text {
+    padding: 100px 0 0;
     color: $off-white;
     h1 {
       font-size: 4rem;

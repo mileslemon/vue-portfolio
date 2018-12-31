@@ -71,7 +71,7 @@ export default {
 
 .post-date {
   min-width: 75px;
-  padding: 34px 32px 4px 32px;
+  padding: 8px 32px 8px 32px;
   color: $off-white;
   text-align: left;
   @include align-self(flex-start);
@@ -85,6 +85,7 @@ export default {
   }
   .post-year {
     padding-left: 6px;
+    font-size: 0.75em;
   }
 }
 
@@ -111,7 +112,8 @@ export default {
 
 .post-content {
   color: white;
-  padding: 4px 32px 32px;
+  padding: 32px;
+  border-top: 1px solid $grey;
   border-bottom: 1px solid $grey;
   h2 {
     color: $off-white;
@@ -130,7 +132,6 @@ export default {
 }
 
 @include breakpoint($tab) {
-
   .blog-post {
     border-left: none;
     @include flex-wrap(nowrap);
@@ -145,6 +146,7 @@ export default {
     }
     .post-year {
       padding-left: 0;
+      font-size: 1em;
     }
   }
 
