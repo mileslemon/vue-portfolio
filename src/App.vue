@@ -7,7 +7,7 @@
     <div class="main-header">
       <div class="header-wrapper">
         <router-link to="/" class="branding">
-          <site-branding></site-branding>
+          <p>MILES LEMON</p>
         </router-link>
 
         <transition name="slide" mode="out-in" appear>
@@ -57,9 +57,8 @@
 </template>
 
 <script>
-import PreLoader from "./components/Misc/PreLoader";
-import SiteBranding from "./components/Misc/SiteBranding";
-import MainFooter from "./components/MainFooter";
+import PreLoader from './components/Misc/PreLoader';
+import MainFooter from './components/MainFooter';
 
 export default {
   data() {
@@ -73,12 +72,11 @@ export default {
   },
   components: {
     PreLoader,
-    SiteBranding,
     MainFooter
   },
   methods: {
     checkNav() {
-      const windowWidth = window.matchMedia("(min-width: 560px)");
+      const windowWidth = window.matchMedia('(min-width: 560px)');
       if (windowWidth.matches && this.closeNav === true) {
         this.closeNav = false;
       } else if (!windowWidth.matches && this.closeNav === false) {
@@ -86,17 +84,21 @@ export default {
       }
     },
     hideNav(e) {
-      const windowWidth = window.matchMedia("(max-width: 560px)");
-      const showNav = document.querySelector('.nav-show')
-      if (this.closeNav === false && e.target !== showNav && windowWidth.matches) {
+      const windowWidth = window.matchMedia('(max-width: 560px)');
+      const showNav = document.querySelector('.nav-show');
+      if (
+        this.closeNav === false &&
+        e.target !== showNav &&
+        windowWidth.matches
+      ) {
         this.closeNav = true;
       }
     }
   },
   watch: {
-    $route (to, from) {
+    $route(to, from) {
       // close mobile nav menu when switching routes
-      const windowWidth = window.matchMedia("(max-width: 560px)");
+      const windowWidth = window.matchMedia('(max-width: 560px)');
       if (windowWidth.matches && this.closeNav === false) {
         this.closeNav = true;
       }
@@ -104,22 +106,22 @@ export default {
       // change colour theme when going to and from the design section
       if (to.name === 'design' || to.name === 'designItem') {
         this.isLightMode = true;
-        this.isDarkMode = false
+        this.isDarkMode = false;
       } else if (from.name === 'design' || from.name === 'designItem') {
         this.isLightMode = false;
         this.isDarkMode = true;
       }
-    },
+    }
   },
   created() {
-    window.addEventListener("load", () => {   
+    window.addEventListener('load', () => {
       this.loading = false;
     });
   },
   mounted() {
     // Prevent clicking nav from closing the nav
-    const nav = document.querySelector('.nav')
-    nav.addEventListener('click', (e) => {
+    const nav = document.querySelector('.nav');
+    nav.addEventListener('click', e => {
       e.stopPropagation();
     });
 
@@ -136,17 +138,17 @@ export default {
 @font-face {
   font-family: Univers;
   font-weight: normal;
-  src: url("assets/fonts/Univers.otf") format("opentype");
+  src: url('assets/fonts/Univers.otf') format('opentype');
 }
 @font-face {
   font-family: UniversLight;
   font-weight: lighter;
-  src: url("assets/fonts/Univers-Light.otf") format("opentype");
+  src: url('assets/fonts/Univers-Light.otf') format('opentype');
 }
 @font-face {
   font-family: UniversBold;
   font-weight: bold;
-  src: url("assets/fonts/Univers-Bold.otf") format("opentype");
+  src: url('assets/fonts/Univers-Bold.otf') format('opentype');
 }
 
 * {
@@ -170,8 +172,8 @@ body {
   font-family: UniversLight, Helvetica, sans-serif;
 }
 
-body::-webkit-scrollbar { 
-  display: none; 
+body::-webkit-scrollbar {
+  display: none;
 }
 
 img {
@@ -193,9 +195,9 @@ p {
   padding-bottom: 87px;
   @include transition(all 0.5s ease-in-out);
   &:after {
-    content: "";
+    content: '';
     animation: 0.5s infinite noise;
-    background: url("./assets/images/background_noise.png");
+    background: url('./assets/images/background_noise.png');
     background-size: 40%;
     height: 100%;
     left: 0;
@@ -208,7 +210,7 @@ p {
 }
 
 #app.darkMode {
-  background: rgba(20, 20, 20, 1);  
+  background: rgba(20, 20, 20, 1);
   .main-header,
   .main-footer,
   .nav {
@@ -218,29 +220,57 @@ p {
 #app.lightMode {
   background: $off-white;
   .main-header,
-  .main-footer, 
+  .main-footer,
   .nav {
     background: $off-white;
   }
 }
 
 @keyframes noise {
-  0%, 100% { background-position: 0 0; }
-  10% { background-position: -5% -10%; }
-  20% { background-position: -15% 5%; }
-  30% { background-position: 7% -25%; }
-  40% { background-position: 20% 25%; }
-  50% { background-position: -25% 10%; } 
-  60% { background-position: 15% 5%; }
-  70% { background-position: 0% 15%; }
-  80% { background-position: 25% 35%; }
-  90% { background-position: -10% 10%; }
+  0%,
+  100% {
+    background-position: 0 0;
+  }
+  10% {
+    background-position: -5% -10%;
+  }
+  20% {
+    background-position: -15% 5%;
+  }
+  30% {
+    background-position: 7% -25%;
+  }
+  40% {
+    background-position: 20% 25%;
+  }
+  50% {
+    background-position: -25% 10%;
+  }
+  60% {
+    background-position: 15% 5%;
+  }
+  70% {
+    background-position: 0% 15%;
+  }
+  80% {
+    background-position: 25% 35%;
+  }
+  90% {
+    background-position: -10% 10%;
+  }
 }
 
 .branding {
   text-decoration: none;
   padding: 32px;
   position: relative;
+  p {
+    margin: 0;
+    font-family: UniversLight, sans-serif;
+    letter-spacing: 4px;
+    font-size: 0.75em;
+    white-space: nowrap;
+  }
   &:before {
     content: '';
     background: $grey;
@@ -254,7 +284,7 @@ p {
     @include transform-origin(left, top);
     @include scale(0, 1);
     -webkit-transition: transform 0.2s cubic-bezier(1, 0, 0, 1);
-    transition: transform 0.2s cubic-bezier(1, 0, 0, 1)
+    transition: transform 0.2s cubic-bezier(1, 0, 0, 1);
   }
   &:hover:before {
     @include transform-origin(right, top);
@@ -405,10 +435,10 @@ p {
     right: 0;
   }
   .c-line-wrapper {
-  position: fixed;
-  top: 0;
-  height: 100%;
-  padding: 78px 0 87px 0;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    padding: 78px 0 87px 0;
     .c-line {
       @include border-radius(50%);
       height: 100%;
@@ -599,7 +629,6 @@ p {
     .line-1 {
       left: 190px;
     }
-  
     .line-2 {
       right: 367px;
     }

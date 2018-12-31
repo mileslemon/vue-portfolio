@@ -30,16 +30,17 @@ export default {
   },
   created() {
     // fetch post data [STRAPI]
-    axios.get('https://cdn.mileslemon.com/designs?slug=' + this.designSlug)
-    .then(res => {
-      this.design = res.data[0];
-      setTimeout(() => {
-        this.getSideTextWidth();
-      }, 1)
-    })
-    .catch(e => {
-      this.errors.push(e);
-    });
+    axios
+      .get('https://cdn.mileslemon.com/designs?slug=' + this.designSlug)
+      .then(res => {
+        this.design = res.data[0];
+        setTimeout(() => {
+          this.getSideTextWidth();
+        }, 1);
+      })
+      .catch(e => {
+        this.errors.push(e);
+      });
   },
   mounted() {
     // run after everything is in-place
@@ -80,18 +81,19 @@ export default {
   img {
     margin-bottom: 32px;
   }
-  img[lazy=loading] {
+  img[lazy='loading'] {
     animation: glow 2s infinite;
   }
   @keyframes glow {
-    0%, 100% {
+    0%,
+    100% {
       background: #fcfaf3;
     }
     50% {
       background: #f8f4df;
     }
   }
-  img[lazy=loaded] {
+  img[lazy='loaded'] {
     opacity: 0;
     animation: slideFadeInY 0.3s linear both;
   }

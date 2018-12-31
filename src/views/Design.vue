@@ -36,15 +36,16 @@ export default {
   created() {
     this.$emit('fetchRoute', this.routeTitle, this.route);
 
-    axios.get('https://cdn.mileslemon.com/designs')
-    .then(res => {
-      this.designs = res.data;
-      console.log(this.designs);
-    })
-    .catch(e => {
-      console.log(e);
-      this.errors.push(e);
-    });
+    axios
+      .get('https://cdn.mileslemon.com/designs')
+      .then(res => {
+        this.designs = res.data;
+        console.log(this.designs);
+      })
+      .catch(e => {
+        console.log(e);
+        this.errors.push(e);
+      });
   }
 };
 </script>
@@ -74,6 +75,4 @@ export default {
     transform: translateY(0);
   }
 }
-
-@include breakpoint($tab) {}
 </style>

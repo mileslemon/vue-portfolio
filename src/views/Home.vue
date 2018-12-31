@@ -85,7 +85,6 @@ export default {
   animation: slideFadeIn 0.5s ease-in-out forwards;
 }
 
-
 @keyframes slideFadeIn {
   from {
     opacity: 0;

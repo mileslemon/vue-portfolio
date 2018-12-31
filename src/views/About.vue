@@ -41,19 +41,6 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      routeTitle: 'About.'
-    };
-  },
-  created() {
-    this.$emit("fetchRoute", this.routeTitle, this.$route.name);
-  }
-};
-</script>
-
 <style lang="scss" scoped>
 .about-content {
   color: white;

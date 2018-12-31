@@ -13,8 +13,6 @@
 </template>
 
 <script>
-import Vue from 'vue'
-
 import axios from 'axios';
 import marked from 'marked';
 
@@ -36,17 +34,17 @@ export default {
     }
   },
   created() {
-    console.log(this.postSlug);
     // fetch post data [STRAPI]
-    axios.get('https://cdn.mileslemon.com/posts?slug=' + this.postSlug)
-    .then(res => {
-      this.post = res.data[0];
-      this.loaded = true;
-      this.postBody = marked(res.data.body);
-    })
-    .catch(e => {
-      this.errors.push(e);
-    });
+    axios
+      .get('https://cdn.mileslemon.com/posts?slug=' + this.postSlug)
+      .then(res => {
+        this.post = res.data[0];
+        this.loaded = true;
+        this.postBody = marked(res.data.body);
+      })
+      .catch(e => {
+        this.errors.push(e);
+      });
   }
 };
 </script>
@@ -86,7 +84,7 @@ export default {
   @include flexbox;
   &:before {
     content: '';
-    background: url("../../assets/images/back-arrow-white.svg");
+    background: url('../../assets/images/back-arrow-white.svg');
     background-size: cover;
     width: 16px;
     height: 16px;
@@ -127,4 +125,3 @@ export default {
   }
 }
 </style>
-

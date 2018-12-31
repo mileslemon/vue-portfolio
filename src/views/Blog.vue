@@ -38,20 +38,23 @@ export default {
   computed: {
     computedList() {
       const vm = this;
-      return this.posts.filter((post) => {
-        return post.title.toLowerCase().indexOf(vm.blogSearch.toLowerCase()) !== -1;
+      return this.posts.filter(post => {
+        return (
+          post.title.toLowerCase().indexOf(vm.blogSearch.toLowerCase()) !== -1
+        );
       });
     }
   },
   created() {
     // fetch posts api data [STRAPI]
-    axios.get('https://cdn.mileslemon.com/posts?_sort=-date')
-    .then(res => {
-      this.posts = res.data;
-    })
-    .catch(e => {
-      this.errors.push(e);
-    });
+    axios
+      .get('https://cdn.mileslemon.com/posts?_sort=-date')
+      .then(res => {
+        this.posts = res.data;
+      })
+      .catch(e => {
+        this.errors.push(e);
+      });
   }
 };
 </script>

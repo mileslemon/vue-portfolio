@@ -51,19 +51,34 @@
   }
 }
 
-@keyframes scroll{
-  50%{background-size:80%}
-  100%{background-position:125% 0;}
+@keyframes scroll {
+  50% {
+    background-size: 80%;
+  }
+  100% {
+    background-position: 125% 0;
+  }
 }
 
 @keyframes loading {
-  from {left: -50px; width: 30%;}
-  50% {width: 30%;}
-  70% {width: 70%;}
-  80% { left: 50%;}
-  95% {left: 120%;}
-  to {left: 100%;}
+  from {
+    left: -50px;
+    width: 30%;
+  }
+  50% {
+    width: 30%;
+  }
+  70% {
+    width: 70%;
+  }
+  80% {
+    left: 50%;
+  }
+  95% {
+    left: 120%;
+  }
+  to {
+    left: 100%;
+  }
 }
-
 </style>
-
