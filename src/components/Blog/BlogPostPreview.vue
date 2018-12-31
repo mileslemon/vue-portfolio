@@ -71,7 +71,7 @@ export default {
 
 .post-date {
   min-width: 75px;
-  padding: 34px 32px 0 32px;
+  padding: 34px 32px 4px 32px;
   color: $off-white;
   text-align: left;
   @include align-self(flex-start);
@@ -111,7 +111,7 @@ export default {
 
 .post-content {
   color: white;
-  padding: 8px 32px 32px;
+  padding: 4px 32px 32px;
   border-bottom: 1px solid $grey;
   h2 {
     color: $off-white;
