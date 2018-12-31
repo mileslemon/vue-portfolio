@@ -58,7 +58,6 @@ export default {
 <style lang="scss" scoped>
 .blog-post {
   color: $off-white;
-  border-left: 1px solid $grey;
   @include flexbox;
   @include flex-direction(row);
   @include flex-wrap(wrap);
@@ -151,6 +150,7 @@ export default {
   }
 
   .post-content {
+    border-top: none;
     border-left: 1px solid $grey;
     padding: 32px;
     h2 {
