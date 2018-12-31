@@ -49,7 +49,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .back-link {
   display: block;
   padding: 32px 0 0;
@@ -103,8 +103,23 @@ export default {
     font-size: 2.5rem;
   }
   .blog-post-body {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     line-height: 1.3;
+    a {
+      color: white;
+      font-family: UniversLight, sans-serif;
+      @include transition(all 0.3s ease-in-out);
+      &:hover {
+        background: none;
+        opacity: 0.6;
+      }
+    }
+    ul {
+      padding-left: 20px;
+      li {
+        margin-bottom: 8px;
+      }
+    }
   }
 }
 
