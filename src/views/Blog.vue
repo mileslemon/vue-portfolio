@@ -67,6 +67,7 @@ export default {
   font-size: 1.25em;
   color: $off-white;
   outline: none;
+  border-radius: 0;
 
   position: absolute;
   top: 78px;

@@ -58,9 +58,10 @@ export default {
 <style lang="scss" scoped>
 .blog-post {
   color: $off-white;
+  border-left: 1px solid $grey;
   @include flexbox;
   @include flex-direction(row);
-  @include flex-wrap(nowrap);
+  @include flex-wrap(wrap);
   &:last-child {
     .post-content {
       border-bottom: none;
@@ -70,16 +71,20 @@ export default {
 
 .post-date {
   min-width: 75px;
-  padding: 34px 32px 0 0;
+  padding: 34px 32px 0 32px;
   color: $off-white;
-  text-align: right;
+  text-align: left;
   @include align-self(flex-start);
   p {
     margin: 0;
+    display: inline-block;
   }
   .post-day-month {
     text-transform: uppercase;
     font-size: 0.75em;
+  }
+  .post-year {
+    padding-left: 6px;
   }
 }
 
@@ -106,12 +111,11 @@ export default {
 
 .post-content {
   color: white;
-  padding: 32px;
+  padding: 8px 32px 32px;
   border-bottom: 1px solid $grey;
-  border-left: 1px solid $grey;
   h2 {
     color: $off-white;
-    font-size: 2.2em;
+    font-size: 1.5em;
     margin: 0 0 16px;
   }
   img {
@@ -126,8 +130,30 @@ export default {
 }
 
 @include breakpoint($tab) {
+
+  .blog-post {
+    border-left: none;
+    @include flex-wrap(nowrap);
+  }
+
   .post-date {
+    padding: 34px 32px 0 0;
+    text-align: right;
     min-width: 159px;
+    p {
+      display: block;
+    }
+    .post-year {
+      padding-left: 0;
+    }
+  }
+
+  .post-content {
+    border-left: 1px solid $grey;
+    padding: 32px;
+    h2 {
+      font-size: 2.2em;
+    }
   }
 }
 

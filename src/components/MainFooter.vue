@@ -19,6 +19,7 @@ export default {
 
 <style lang="scss" scoped>
 .main-footer {
+  z-index: 1;
   border-top: 1px solid $grey;
   position: fixed;
   width: 100%;
