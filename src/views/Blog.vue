@@ -77,7 +77,6 @@ export default {
 
 .blog {
   margin-top: 52px;
-  border-right: 1px solid $grey;
   h1 {
     color: $off-white;
   }
