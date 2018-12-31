@@ -1,41 +1,52 @@
-import Vue from "vue";
-import Router from "vue-router";
-import Home from "./views/Home.vue";
+import Vue from 'vue';
+import Router from 'vue-router';
+import Home from './views/Home.vue';
 
 Vue.use(Router);
 
 export default new Router({
-  mode: "history",
+  mode: 'history',
   base: process.env.BASE_URL,
   routes: [
     {
-      path: "/",
-      name: "home",
+      path: '/',
+      name: 'home',
       component: Home
     },
     {
-      path: "/about",
-      name: "about",
+      path: '/about',
+      name: 'about',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () =>
-        import(/* webpackChunkName: "about" */ "./views/About.vue")
+        import(/* webpackChunkName: "about" */ './views/About.vue')
+    },
+    // {
+    //   path: "/cv",
+    //   name: "cv",
+    //   component: () => import("./views/CV.vue")
+    // },
+    {
+      path: '/design',
+      name: 'design',
+      component: () => import('./views/Design.vue')
     },
     {
-      path: "/cv",
-      name: "cv",
-      component: () => import("./views/CV.vue")
+      path: '/design/:slug',
+      name:'designItem',
+      component: () => import('./components/Design/DesignDetail.vue')
     },
     {
-      path: "/design",
-      name: "design",
-      component: () => import("./views/Design.vue")
+      path: '/blog',
+      name: 'blog',
+      component: () => import('./views/Blog.vue')
     },
     {
-      path: "/blog",
-      name: "blog",
-      component: () => import("./views/Blog.vue")
+      name: 'post',
+      // path: '/blog/:url',
+      path: '/blog/:slug',
+      component: () => import('./components/Blog/BlogPostDetail.vue')
     }
   ]
 });
