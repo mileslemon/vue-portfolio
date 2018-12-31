@@ -56,8 +56,8 @@ export default {
   text-decoration: none;
   @include transition(all 0.3s ease-out);
   &:hover {
-    background: none;
-    color: $off-white;
+    background: none !important;
+    color: $off-white !important;
     opacity: 0.6;
     transform: translateX(-8px);
   }
