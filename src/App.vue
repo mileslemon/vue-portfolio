@@ -46,7 +46,6 @@
       <transition name="router-anim" mode="out-in" appear>
         <router-view 
           class="content"  
-          @fetchRoute="routeFetched"
           :blog-search="blogSearch"
         />
       </transition>
@@ -183,6 +182,22 @@ img {
 
 p {
   margin: 0;
+}
+
+pre {
+  color: $off-black;
+  background: $off-white;
+  padding: 24px;
+  border-radius: 5px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+  code {
+    font-size: 0.75em;
+  }
 }
 
 #app {

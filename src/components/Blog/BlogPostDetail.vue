@@ -104,7 +104,7 @@ export default {
   }
   .blog-post-body {
     font-size: 1rem;
-    line-height: 1.3;
+    line-height: 1.5;
     a {
       color: white;
       font-family: UniversLight, sans-serif;
