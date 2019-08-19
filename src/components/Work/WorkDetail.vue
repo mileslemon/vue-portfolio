@@ -1,15 +1,15 @@
 <template>
-  <div class="design">
-    <div v-if="design" class="design-item-detail">
-      <div class="design-item-detail-text">
-        <div class="design-item-text-detail-wrapper" :style="{ width: sideTextWidth }">
-          <p class="design-type">{{ design.type }}</p>
-          <h1>{{ design.title }}</h1>
-          <p class="design-body" v-html="renderDesignBody"></p>
+  <div class="work">
+    <div v-if="work" class="work-item-detail">
+      <div class="work-item-detail-text">
+        <div class="work-item-text-detail-wrapper" :style="{ width: sideTextWidth }">
+          <p class="work-type">{{ work.type }}</p>
+          <h1>{{ work.title }}</h1>
+          <p class="work-body" v-html="renderWorkBody"></p>
         </div>
       </div>
-      <div class="design-item-detail-portfolio">
-        <img v-for="image in design.images" :key="image.id" v-lazy="image.url">
+      <div class="work-item-detail-portfolio">
+        <img v-for="image in work.images" :key="image.id" v-lazy="image.url">
       </div>
     </div>
   </div>
@@ -22,8 +22,8 @@ import marked from 'marked';
 export default {
   data() {
     return {
-      designSlug: this.$route.params.slug,
-      design: null,
+      workSlug: this.$route.params.slug,
+      work: null,
       errors: [],
       sideTextWidth: '33.33%'
     };
@@ -31,9 +31,9 @@ export default {
   created() {
     // fetch post data [STRAPI]
     axios
-      .get('https://cdn.mileslemon.com/designs?slug=' + this.designSlug)
+      .get('https://cdn.mileslemon.com/designs?slug=' + this.workSlug)
       .then(res => {
-        this.design = res.data[0];
+        this.work = res.data[0];
         setTimeout(() => {
           this.getSideTextWidth();
         }, 1);
@@ -49,14 +49,14 @@ export default {
     });
   },
   computed: {
-    renderDesignBody() {
-      return marked(this.design.body);
+    renderWorkBody() {
+      return marked(this.work.body);
     }
   },
   methods: {
     getSideTextWidth() {
-      if (this.$route.name === 'designItem') {
-        const sideBar = document.querySelector('.design-item-detail-text');
+      if (this.$route.name === 'workItem') {
+        const sideBar = document.querySelector('.work-item-detail-text');
         this.sideTextWidth = window.getComputedStyle(sideBar).width;
       }
     }
@@ -65,18 +65,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.design-item-detail-text {
+.work-item-detail-text {
   margin-bottom: 48px;
 }
 
-.design-type {
+.work-type {
   margin-bottom: 16px;
   text-transform: uppercase;
   font-size: 0.75em;
   letter-spacing: 4px;
 }
 
-.design-item-detail-portfolio {
+.work-item-detail-portfolio {
   z-index: 0;
   img {
     margin-bottom: 32px;
@@ -109,7 +109,7 @@ export default {
   }
 }
 
-.design-item-detail {
+.work-item-detail {
   @include flexbox;
   @include flex-direction(column);
   h1 {
@@ -119,23 +119,23 @@ export default {
   padding: 32px 0;
 }
 
-.design-body {
+.work-body {
   line-height: 1.35;
 }
 
 @include breakpoint($tab) {
-  .design-item-detail {
+  .work-item-detail {
     position: relative;
     @include flex-direction(row);
     @include justify-content(space-between);
-    .design-item-detail-text {
+    .work-item-detail-text {
       display: block;
       width: calc(33.333% - 24px);
-      .design-item-text-detail-wrapper {
+      .work-item-text-detail-wrapper {
         position: fixed;
       }
     }
-    .design-item-detail-portfolio {
+    .work-item-detail-portfolio {
       width: calc(66.666% - 24px);
     }
   }

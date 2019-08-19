@@ -23,7 +23,7 @@
         <div class="nav" :class="{ 'hide-nav': closeNav }">
           <div class="nav-wrapper">
             <router-link active-class="active" to="/about">about</router-link>
-            <router-link active-class="active" to="/design">design</router-link>
+            <router-link active-class="active" to="/work">work</router-link>
             <router-link active-class="active" to="/blog">blog</router-link>
           </div>
           <div class="nav-close" @click="closeNav = true">
@@ -102,11 +102,11 @@ export default {
         this.closeNav = true;
       }
 
-      // change colour theme when going to and from the design section
-      if (to.name === 'design' || to.name === 'designItem') {
+      // change colour theme when going to and from the work section
+      if (to.name === 'work' || to.name === 'workItem') {
         this.isLightMode = true;
         this.isDarkMode = false;
-      } else if (from.name === 'design' || from.name === 'designItem') {
+      } else if (from.name === 'work' || from.name === 'workItem') {
         this.isLightMode = false;
         this.isDarkMode = true;
       }
@@ -392,7 +392,7 @@ pre {
       font-size: 0.75em;
       letter-spacing: 4px;
       overflow: hidden;
-      padding: 32px;
+      padding: 32px 34.5px;
       position: relative;
       text-decoration: none;
       text-transform: uppercase;

@@ -1,23 +1,23 @@
 <template>
-  <div class="design">
-    <div class="design-content">
+  <div class="work">
+    <div class="work-content">
       <sequential-entrance animation="slideFade">
-        <design-preview
-          class="design-item"
-          v-for="design in designs"
-          :key="design.id"
-          :design-id="design.id"
-          :design-title="design.title"
-          :design-type="design.type"
-          :design-slug="design.slug"
-        ></design-preview>
+        <work-preview
+          class="work-item"
+          v-for="work in works"
+          :key="work.id"
+          :work-id="work.id"
+          :work-title="work.title"
+          :work-type="work.type"
+          :work-slug="work.slug"
+        ></work-preview>
       </sequential-entrance>
     </div>
   </div>
 </template>
 
 <script>
-import DesignPreview from '../components/Design/DesignPreview';
+import WorkPreview from '../components/Work/WorkPreview';
 
 import axios from 'axios';
 
@@ -26,12 +26,12 @@ export default {
     return {
       route: this.$route.name,
       sideTextWidth: '',
-      designs: null,
+      works: null,
       errors: []
     };
   },
   components: {
-    DesignPreview
+    WorkPreview
   },
   created() {
     this.$emit('fetchRoute', this.routeTitle, this.route);
@@ -39,11 +39,9 @@ export default {
     axios
       .get('https://cdn.mileslemon.com/designs')
       .then(res => {
-        this.designs = res.data;
-        console.log(this.designs);
+        this.works = res.data;
       })
       .catch(e => {
-        console.log(e);
         this.errors.push(e);
       });
   }
@@ -51,7 +49,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.design-content {
+.work-content {
   @include flexbox;
   @include flex-direction(column);
   h1 {

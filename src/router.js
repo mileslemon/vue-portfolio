@@ -28,14 +28,14 @@ export default new Router({
     //   component: () => import("./views/CV.vue")
     // },
     {
-      path: '/design',
-      name: 'design',
-      component: () => import('./views/Design.vue')
+      path: '/work',
+      name: 'work',
+      component: () => import('./views/Work.vue')
     },
     {
-      path: '/design/:slug',
-      name:'designItem',
-      component: () => import('./components/Design/DesignDetail.vue')
+      path: '/work/:slug',
+      name: 'workItem',
+      component: () => import('./components/Work/WorkDetail.vue')
     },
     {
       path: '/blog',

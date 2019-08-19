@@ -1,8 +1,8 @@
 <template>
-  <div class="design-item-preview">
-    <router-link class="design-item-link" :to="'/design/' + designSlug">
-      <h1>{{ designTitle }}</h1>
-      <p>READ MORE</p>
+  <div class="work-item-preview">
+    <router-link class="work-item-link" :to="'/work/' + workSlug">
+      <h1>{{ workTitle }}</h1>
+      <p>{{ workType }}</p>
     </router-link>
   </div>
 </template>
@@ -10,16 +10,16 @@
 <script>
 export default {
   props: {
-    designId: {
+    workId: {
       type: String
     },
-    designTitle: {
+    workTitle: {
       type: String
     },
-    designType: {
+    workType: {
       type: String
     },
-    designSlug: {
+    workSlug: {
       type: String
     }
   }
@@ -27,10 +27,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.design-item-preview {
+.work-item-preview {
   margin-bottom: 48px;
 }
-.design-item-link {
+.work-item-link {
   color: $off-black;
   text-decoration: none;
   display: block;
